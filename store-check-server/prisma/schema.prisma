@@ -1,0 +1,103 @@
+generator client {
+  provider = "prisma-client-js"
+}
+
+datasource db {
+  provider = "postgresql"
+  url      = env("DATABASE_URL")
+}
+
+model Store {
+  id         String      @id // ใช้ค่า id จาก API เป็น Primary Key
+  name       String
+  address1   String?
+  address2   String?
+  city       String?
+  state      String?
+  country    String?
+  postalCode String?
+  phone      String?
+  email      String?
+  website    String?
+  Inventory  Inventory[]
+
+  @@index([name])
+}
+
+model Inventory {
+  id             String  @id @default(uuid())
+  storeId        String
+  store          Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  productId      String
+  product        Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+  quantityOnHand Int
+  warningStock   Int?
+  idealStock     Int?
+
+  @@unique([storeId, productId]) // ป้องกันไม่ให้มีสินค้าซ้ำกันใน Store เดียวกัน
+  @@index([storeId])
+  @@index([productId])
+}
+
+model Product {
+  id              String         @id
+  name            String
+  sku             String?
+  barcode         String?
+  category        String?
+  subCategory     String?
+  tags            String[] // Array of tags
+  priceType       PriceType
+  unitPrice       Float?
+  cost            Float?
+  trackStockLevel Boolean
+  isParentProduct Boolean
+  parentProductId String? // FK to parent product if this is child
+  parentProduct   Product?       @relation("ParentChildren", fields: [parentProductId], references: [id], onDelete: Cascade)
+  childProducts   Product[]      @relation("ParentChildren")
+  variantGroups   VariantGroup[] // Only for parent products
+  variantValues   VariantValue[] // Only for child products
+  Inventory       Inventory[]
+
+  @@index([parentProductId])
+}
+
+model VariantGroup {
+  id           String          @id
+  name         String
+  productId    String
+  product      Product         @relation(fields: [productId], references: [id], onDelete: Cascade)
+  options      VariantOption[]
+  VariantValue VariantValue[]
+
+  @@index([productId])
+}
+
+model VariantOption {
+  id              String       @id @default(uuid())
+  optionValue     String
+  isDefault       Boolean
+  priceDifference Float?
+  variantGroupId  String
+  variantGroup    VariantGroup @relation(fields: [variantGroupId], references: [id], onDelete: Cascade)
+
+  @@index([variantGroupId])
+}
+
+model VariantValue {
+  id             String       @id @default(uuid())
+  variantGroupId String
+  variantGroup   VariantGroup @relation(fields: [variantGroupId], references: [id], onDelete: Cascade)
+  value          String
+  productId      String
+  product        Product      @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  @@unique([productId, variantGroupId]) // เพื่อใช้ upsert
+  @@index([variantGroupId])
+  @@index([productId])
+}
+
+enum PriceType {
+  Fixed
+  Variable
+}
