@@ -3,6 +3,7 @@ import "@/../styles/globals.css";
 import { siteConfig } from "@/config/site";
 import clsx from "clsx";
 import { fontSans } from "@/config/fonts";
+import StoreProvider from "@/providers/StoreProvider";
 
 export const metadata: Metadata = {
   title: {
@@ -40,7 +41,7 @@ export default function RootLayout({
           fontSans.variable
         )}
       >
-        {children}
+        <StoreProvider>{children}</StoreProvider>
       </body>
     </html>
   );
