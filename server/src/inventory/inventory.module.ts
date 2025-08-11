@@ -5,8 +5,8 @@ import { PrismaModule } from '../prisma.module';
 import { RedisModule } from '../redis.module';
 
 @Module({
-  imports: [PrismaModule, RedisModule],
+  imports: [RedisModule],
   controllers: [InventoryController],
-  providers: [InventoryService],
+  providers: [InventoryService, PrismaModule],
 })
 export class InventoryModule {}

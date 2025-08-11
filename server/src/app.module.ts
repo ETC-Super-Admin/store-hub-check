@@ -7,6 +7,8 @@ import { ProductsModule } from './products/products.module';
 import { InventoryModule } from './inventory/inventory.module';
 import { StoresModule } from './stores/stores.module';
 import { RedisModule } from './redis.module';
+import { HistoryModule } from './history/history.module';
+import { NegativeInventoryModule } from './negative-inventory/negative-inventory.module';
 
 @Module({
   imports: [
@@ -18,6 +20,8 @@ import { RedisModule } from './redis.module';
     InventoryModule,
     StoresModule,
     RedisModule,
+    HistoryModule,
+    NegativeInventoryModule,
   ],
   controllers: [AppController],
   providers: [AppService],

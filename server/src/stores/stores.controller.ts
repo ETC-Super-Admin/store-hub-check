@@ -15,4 +15,9 @@ export class StoresController {
     async getStores() {
         return this.storesService.getStoresFromApi();
     }
+
+    @Get('db')
+    async getStoresFromDb() {
+        return this.storesService.getStoresFromDb();
+    }
 }

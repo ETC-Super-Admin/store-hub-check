@@ -65,4 +65,8 @@ export class StoresService {
             }
         });
     }
+
+    async getStoresFromDb() {
+        return this.prisma.store.findMany();
+    }
 }

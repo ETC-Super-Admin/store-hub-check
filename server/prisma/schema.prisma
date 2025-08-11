@@ -8,18 +8,19 @@ datasource db {
 }
 
 model Store {
-  id         String      @id // ใช้ค่า id จาก API เป็น Primary Key
-  name       String
-  address1   String?
-  address2   String?
-  city       String?
-  state      String?
-  country    String?
-  postalCode String?
-  phone      String?
-  email      String?
-  website    String?
-  Inventory  Inventory[]
+  id                       String                     @id // ใช้ค่า id จาก API เป็น Primary Key
+  name                     String
+  address1                 String?
+  address2                 String?
+  city                     String?
+  state                    String?
+  country                  String?
+  postalCode               String?
+  phone                    String?
+  email                    String?
+  website                  String?
+  Inventory                Inventory[]
+  NegativeInventoryHistory NegativeInventoryHistory[]
 
   @@index([name])
 }
@@ -40,24 +41,25 @@ model Inventory {
 }
 
 model Product {
-  id              String         @id
-  name            String
-  sku             String?
-  barcode         String?
-  category        String?
-  subCategory     String?
-  tags            String[] // Array of tags
-  priceType       PriceType
-  unitPrice       Float?
-  cost            Float?
-  trackStockLevel Boolean
-  isParentProduct Boolean
-  parentProductId String? // FK to parent product if this is child
-  parentProduct   Product?       @relation("ParentChildren", fields: [parentProductId], references: [id], onDelete: Cascade)
-  childProducts   Product[]      @relation("ParentChildren")
-  variantGroups   VariantGroup[] // Only for parent products
-  variantValues   VariantValue[] // Only for child products
-  Inventory       Inventory[]
+  id                       String                     @id
+  name                     String
+  sku                      String?
+  barcode                  String?
+  category                 String?
+  subCategory              String?
+  tags                     String[] // Array of tags
+  priceType                PriceType
+  unitPrice                Float?
+  cost                     Float?
+  trackStockLevel          Boolean
+  isParentProduct          Boolean
+  parentProductId          String? // FK to parent product if this is child
+  parentProduct            Product?                   @relation("ParentChildren", fields: [parentProductId], references: [id], onDelete: Cascade)
+  childProducts            Product[]                  @relation("ParentChildren")
+  variantGroups            VariantGroup[] // Only for parent products
+  variantValues            VariantValue[] // Only for child products
+  Inventory                Inventory[]
+  NegativeInventoryHistory NegativeInventoryHistory[]
 
   @@index([parentProductId])
 }
@@ -100,4 +102,39 @@ model VariantValue {
 enum PriceType {
   Fixed
   Variable
+}
+
+model NegativeInventoryHistory {
+  id        String  @id @default(uuid())
+  storeId   String
+  store     Store   @relation(fields: [storeId], references: [id], onDelete: Cascade)
+  productId String
+  product   Product @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  syncDate   DateTime
+  existQty   Int
+  updateQty  Int?
+  difference Int?
+
+  note String? @db.Text
+
+  statusId String
+  status   Status @relation(fields: [statusId], references: [id], onDelete: Restrict)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  // เพิ่มบรรทัดนี้เพื่อกันข้อมูลซ้ำ
+  @@unique([storeId, productId, syncDate])
+  @@index([storeId])
+  @@index([productId])
+  @@index([statusId])
+}
+
+model Status {
+  id    String  @id @default(uuid())
+  name  String  @unique
+  notes String? // Optional description or remark about the status
+
+  NegativeInventoryHistory NegativeInventoryHistory[]
 }
