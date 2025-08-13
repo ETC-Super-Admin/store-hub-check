@@ -1,0 +1,72 @@
+{
+  "Navigation": {
+    "search_input": "Search product ex: SY-A001 or Linen...",
+    "empty_search": "Search input cannot be empty",
+    "selected_category": "Selected Category",
+    "search": "Search",
+    "max_input_length": "Search must be 100 characters or less. Please try again."
+  },
+  "Main": {
+    "last_load": "No more products found",
+    "product_not_found": "No products found. Please try again later.",
+    "load_cat_items": "Loading products..."
+  },
+  "Footer": {
+    "copyright": "2025 ETC Intertrade Co., Ltd. All rights reserved.",
+    "address": "Address",
+    "address_info": "295, Moo 1, Soi Oboto Mongkhon, Ban Khlong Suan Subdistrict, Phra Samut Chedi District, Samut Prakan Province, 10290, Thailand.",
+    "call_us": "Call Us",
+    "email": "Email",
+    "BH": "Business Hours",
+    "BH_info": "Monday - Saturday: 8:00 AM - 5:00 PM Closed on Sundays",
+    "main_cap": "Reduce costs, increase profits! Import high-quality products at the best prices.",
+    "sub_cap": "Confidence in every order! Fast shipping, reliable stock, and excellent service.",
+    "PKT_Contact": "Phuket Warehouse",
+    "BKK_Contact": "Bangkok Warehouse"
+  },
+  "Categories": {
+    "categories": "Category",
+    "fashion": "Fashion",
+    "toys": "Toys",
+    "men": "Men",
+    "women": "Women"
+  },
+  "Register": {
+    "note": "Note",
+    "descript": "Your personal data will be used to support your experience throughout this website, to manage access to your account, and for other purposes described in our privacy policy"
+  },
+  "Detail": {
+    "CP": "Color/Pattern",
+    "product_shoulder": "Shoulder",
+    "product_length": "Length",
+    "prodcut_sleeve_length": "Sleeve Length",
+    "product_bust": "Bust",
+    "product_hip": "Hip"
+  },
+  "PurchaseGuide": {
+    "title": "Purchase Guide",
+    "ar": "Account Registering",
+    "name": "Name",
+    "age": "Age",
+    "dob": "Date of Birth",
+    "id_number": "Passport/ID Card Number",
+    "current_job": "Current Occupation",
+    "mobile_number": "Mobile Number",
+    "email": "Email",
+    "required": "Required",
+    "select_pro": "Select Product",
+    "coc": "Confirm Order Content",
+    "tc": "Transaction Completed",
+    "acc": "Accepted Credit Cards",
+    "visa": "VISA",
+    "mastercard": "MasterCard",
+    "das": "Download and Setup",
+    "ucrb": "Updated content on a regular basis",
+    "shp": "Secure & hassle-free payment",
+    "onecc": "1-click checkout",
+    "tcbl": "*Taxes are calculated by your local bank and location.",
+    "order_suscess": "If our order has been successfully processed. You will receive a confirmation email with your order details shortly, and we will send an order report via Flex Message to your LINE. If you have any questions, please contact our support team. Thank you for choosing our service!",
+    "order_check": "Please review your order details below carefully before proceeding. If everything is correct, click confirm to proceed with payment. For any changes or questions, please contact our support team. Thank you for choosing our services!",
+    "order_select": "Explore our products and choose the option that best suits your needs! Please click on the desired product to view more details and add it to your cart. If you need assistance with your selection, feel free to contact our support team. Thank you for trusting our services!"
+  }
+}

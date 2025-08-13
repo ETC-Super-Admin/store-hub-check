@@ -1,0 +1,72 @@
+{
+  "Navigation": {
+    "search_input": "搜索商品，例如 SY-A001 或 Linen...",
+    "empty_search": "请输入搜索内容",
+    "selected_category": "已选择的分类",
+    "search": "搜索",
+    "max_input_length": "搜索内容长度不能超过 100 个字符，请重试。"
+  },
+  "Main": {
+    "last_load": "没有更多商品了",
+    "product_not_found": "没有找到商品。请稍后再试。",
+    "load_cat_items": "正在加载商品..."
+  },
+  "Footer": {
+    "copyright": "2025 ETC Intertrade Co., Ltd. 版权所有。",
+    "address": "地址",
+    "address_info": "295 号, Moo 1, Oboto Mongkhon 巷, Ban Khlong Suan 分区, Phra Samut Chedi 区, Samut Prakan 省, 10290, 泰国.",
+    "call_us": "联系我们",
+    "email": "电子邮件",
+    "BH": "营业时间",
+    "BH_info": "星期一至星期六: 早上 8:00 - 下午 5:00，星期日休息",
+    "main_cap": "降低成本，提升利润！以最优价格进口高质量商品。",
+    "sub_cap": "每一笔订单都值得信赖！快速发货，库存充足，服务周到。",
+    "PKT_Contact": "普吉岛仓库",
+    "BKK_Contact": "曼谷仓库"
+  },
+  "Categories": {
+    "categories": "分类",
+    "fashion": "时尚",
+    "toys": "玩具",
+    "men": "男士",
+    "women": "女士"
+  },
+  "Register": {
+    "note": "注意",
+    "descript": "您的个人数据将用于支持您在本网站的体验，管理对您账户的访问权限，并用于我们隐私政策中所述的其他目的。"
+  },
+  "Detail": {
+    "CP": "颜色/图案",
+    "product_shoulder": "肩部",
+    "product_length": "长度",
+    "prodcut_sleeve_length": "袖长",
+    "product_bust": "胸围",
+    "product_hip": "臀围"
+  },
+  "PurchaseGuide": {
+    "title": "购买指南",
+    "ar": "账户注册",
+    "name": "姓名",
+    "age": "年龄",
+    "dob": "出生日期",
+    "id_number": "护照/身份证号码",
+    "current_job": "当前职业",
+    "mobile_number": "手机号码",
+    "email": "电子邮件",
+    "required": "必填",
+    "select_pro": "选择商品",
+    "coc": "确认订单内容",
+    "tc": "交易完成",
+    "acc": "接受的信用卡",
+    "visa": "VISA",
+    "mastercard": "MasterCard",
+    "das": "下载和设置",
+    "ucrb": "定期更新内容",
+    "shp": "安全无忧的支付",
+    "onecc": "一键结账",
+    "tcbl": "*税费由您的本地银行和位置计算。",
+    "order_suscess": "恭喜您！您的订单已成功处理。您将很快收到一封确认电子邮件，包含订单详情。我们还将通过LINE以Flex Message形式向您发送订单报告。如有任何疑问，请联系我们的支持团队。感谢您选择我们的服务",
+    "order_check": "请仔细检查下面的订单详情。如一切无误，请点击确认以继续支付。如需更改或有任何疑问，请联系我们的支持团队。感谢您选择我们的服务！",
+    "order_select": "浏览我们的产品并选择最适合您需求的选项！请点击所需产品以查看更多详情并将其添加到您的购物车。如需选择方面的帮助，请随时联系我们的支持团队。感谢您信任我们的服务！"
+  }
+}

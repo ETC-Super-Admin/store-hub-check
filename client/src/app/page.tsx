@@ -1,20 +1,22 @@
-"use client";
-import { useSelector, useDispatch } from "react-redux";
+'use client';
 
-import { Button } from "@heroui/button";
-import { decrement, increment } from "@/redux/features/counter/counterSlice";
+import React from "react";
+import { title, subtitle } from "@/components/primitives";
 
 export default function Home() {
-  const count = useSelector((state: any) => state.counter.value);
-  const dispatch = useDispatch();
-
   return (
     <section className="flex flex-col items-center justify-center gap-4 py-8 md:py-10">
-      <Button onPress={() => dispatch(increment())}>+</Button>
-      <p>{count}</p>
-      <Button onPress={() => dispatch(decrement())}>-</Button>
-
-
+      <div className="inline-block max-w-xl text-center justify-center">
+        <span className={title()}>Welcome to&nbsp;</span>
+        <span className={title({ color: "violet" })}>ETC Shop&nbsp;</span>
+        <br />
+        <span className={title()}>
+          to the best shopping experience
+        </span>
+        <div className={subtitle({ class: "mt-4" })}>
+          Beautiful, fast and modern shopping web.
+        </div>
+      </div>
     </section>
   );
 }
