@@ -60,8 +60,22 @@ model Product {
   variantValues            VariantValue[] // Only for child products
   Inventory                Inventory[]
   NegativeInventoryHistory NegativeInventoryHistory[]
+  ProductImage             ProductImage[]
 
   @@index([parentProductId])
+}
+
+model ProductImage {
+  id        String   @id @default(uuid())
+  url       String // The image URL
+  altText   String? // Optional alt text for accessibility
+  productId String?
+  product   Product? @relation(fields: [productId], references: [id], onDelete: Cascade)
+
+  createdAt DateTime @default(now())
+  updatedAt DateTime @updatedAt
+
+  @@index([productId])
 }
 
 model VariantGroup {
