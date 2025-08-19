@@ -19,6 +19,7 @@
     "@heroui/link": "2.2.21",
     "@heroui/listbox": "2.3.23",
     "@heroui/navbar": "2.2.22",
+    "@heroui/pagination": "^2.2.22",
     "@heroui/react": "^2.8.2",
     "@heroui/select": "^2.4.25",
     "@heroui/snippet": "2.2.25",
